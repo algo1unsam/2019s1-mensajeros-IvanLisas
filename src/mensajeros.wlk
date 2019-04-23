@@ -20,7 +20,7 @@ object mensajeria {
 		mensajeros.removeAll()
 	}
 	
-	method mensajeriaGrande(){
+	method esGrande(){
 		return mensajeros.size()>=2
 	}
 }
@@ -35,7 +35,7 @@ object roberto {
 	
 }
 
-object chuckNoriis {
+object chuckNorris {
 	
 	method peso() = 900
 	
