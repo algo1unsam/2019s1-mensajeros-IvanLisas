@@ -1,8 +1,10 @@
 object paquete {
 	
-	var property pagar = false
+	var property estaPago = false
 	
 	var property destino = null
 	
-	
+	method pagar(){
+		estaPago = true
+	}
 }

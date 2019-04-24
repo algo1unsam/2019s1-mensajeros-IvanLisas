@@ -4,7 +4,7 @@ import transportes.*
 
 object mensajeria {
 	
-	var mensajeros = #{}
+	var mensajeros =[]
 
 	method mensajeros()= mensajeros	
 	
@@ -22,6 +22,14 @@ object mensajeria {
 	
 	method esGrande(){
 		return mensajeros.size()>=2
+	}
+	
+	method puedeEntregar(paquete){
+		return paquete.estaPago() && paquete.destino().puedeEntrar(mensajeros.first())
+	}
+	
+	method pesoDelUltimo(){
+		return mensajeros.last().peso()
 	}
 }
 
