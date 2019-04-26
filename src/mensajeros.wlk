@@ -31,6 +31,11 @@ object mensajeria {
 	method pesoDelUltimo(){
 		return mensajeros.last().peso()
 	}
+	
+	method puedeSerEntregado(paquete){
+			return mensajeros.any({ mensajero =>  paquete.destino().puedeEntrar(mensajero) })
+	}
+	
 }
 
 object roberto {
