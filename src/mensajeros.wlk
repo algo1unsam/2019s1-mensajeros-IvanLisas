@@ -36,6 +36,22 @@ object mensajeria {
 			return mensajeros.any({ mensajero =>  paquete.destino().puedeEntrar(mensajero) })
 	}
 	
+	method paqueteFacil(paquete){
+			return mensajeros.all({ mensajero =>  paquete.destino().puedeEntrar(mensajero) })
+	}
+	
+	method candidatos(paquete){
+			return mensajeros.filter({ mensajero =>  paquete.destino().puedeEntrar(mensajero) })
+	}
+	
+	method sobrePeso(){
+		 return mensajeros.sum { mensajero => mensajero.peso() } > 500
+	}
+	
+	method entregarPaquete(paquete){
+		if(self.puedeSerEntregado(paquete) && paquete.estaPago()) paquete.entregar(self.candidatos(paquete).anyOne())
+			else error.throwWithMessage("No se puede entregar")
+	}
 }
 
 object roberto {
